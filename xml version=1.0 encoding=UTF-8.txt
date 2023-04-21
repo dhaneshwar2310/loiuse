@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="Rule.css"?>
+<books>
+    <heading>Welcome To Sathyabama Library </heading>
+    <book>
+        <title>Title -: Web Programming</title>
+        <author>Author -: Chrisbates</author>
+        <publisher>Publisher -: Wiley</publisher>
+        <edition>Edition -: 3</edition>
+        <price> Price -: 300</price>
+    </book>
+    <book>
+        <title>Title -: Internet world-wide-web</title>
+        <author>Author -: Ditel</author>
+        <publisher>Publisher -: Pearson</publisher>
+        <edition>Edition -: 3</edition>
+        <price>Price -: 400</price>
+    </book>
+    <book>
+        <title>Title -: Computer Networks</title>
+        <author>Author -: Foruouzan</author>
+        <publisher>Publisher -: Mc Graw Hill</publisher>
+        <edition>Edition -: 5</edition>
+        <price>Price -: 700</price>
+    </book>
+    <book>
+        <title>Title -: DBMS Concepts</title>
+        <author>Author -: Navath</author>
+        <publisher>Publisher -: Oxford</publisher>
+        <edition>Edition -: 5</edition>
+        <price>Price -: 600</price>
+    </book>
+    <book>
+        <title>Title -: Linux Programming</title>
+        <author>Author -: Subhitab Das</author>
+        <publisher>Publisher -: Oxford</publisher>
+        <edition>Edition -: 8</edition>
+        <price>Price -: 300</price>
+    </book>
+</books>
+
+books {
+     color: white;
+     background-color : gray;
+     width: 100%;
+}
+ heading {
+     color: green;
+     font-size : 40px;
+     background-color : powderblue;
+}
+ heading, title, author, publisher, edition, price {
+     display : block;
+}
+ title {
+     font-size : 25px;
+     font-weight : bold;
+}
+
+
+
+
+
+
+
+
+<html>
+   
+   <head>
+      <style>
+         .error {color: #FF0000;}
+      </style>
+   </head>
+   
+   <body>
+    <h2>Absolute classes registration</h2>
+     
+      <p><span class = "error">* required field.</span></p>
+     
+      <form method = "post" action = "dbregister.php">
+         <table>
+            <tr>
+               <td>Name:</td>
+               <td><input type = "text" name = "name">
+                  <span class = "error">* </span>
+               </td>
+            </tr>
+           
+            <tr>
+               <td>E-mail: </td>
+               <td><input type = "text" name = "email">
+                  <span class = "error">* </span>
+               </td>
+            </tr>
+           
+            <tr>
+               <td>Website:</td>
+               <td> <input type = "text" name = "website">
+                  <span class = "error"></span>
+               </td>
+            </tr>
+            
+            <tr>
+               <td>Comment:</td>
+               <td> <textarea name = "comments" rows = "5" cols = "40"></textarea></td>
+            </tr>
+            
+            <tr>
+               <td>Gender:</td>
+               <td>
+                  <input type = "radio" name = "gender" value = "female">Female
+                  <input type = "radio" name = "gender" value = "male">Male
+                  <span class = "error">* </span>
+               </td>
+            </tr>
+				
+            <td>
+               <input type = "submit" name = "submit" value = "Submit"> 
+            </td>
+				
+         </table>
+			
+      </form>
+   </body>
+   </html>
+
+
+
+
+
+
+
+
+
+
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "sample";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+$sql = "CREATE TABLE userinfo (
+name VARCHAR(30) NOT NULL,
+emailid VARCHAR(30) NOT NULL,
+website VARCHAR(50),
+comments varchar(200),
+gender char(7) 
+)";
+
+if ($conn->query($sql) === TRUE) {
+  echo "Table userinfo created successfully";
+} else {
+  echo "Error creating table: " . $conn->error;
+}
+*/
+
+//get the data from html file
+$name=$_POST["name"];
+$email=$_POST["email"];
+$website=$_POST["website"];
+$comments=$_POST["comments"];
+$gender=$_POST["gender"];
+
+//$sql = "INSERT INTO `tbl_contact` (`Id`, `fldName`, `fldEmail`, `fldPhone`, `fldMessage`) VALUES ('0', '$txtName', '$txtEmail', '$txtPhone', '$txtMessage');"
+//insert data into database
+$sql = "INSERT INTO userinfo (name, emailid, website,comments,gender)
+VALUES ('$name', '$email', '$website','$comments','$gender')";
+echo "inserted";
+
+if ($conn->query($sql) === TRUE) {
+  echo "New record created successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
+*/
+$conn->close();
+?>
+
+
+
+
+
+
+
+👆Inline Stylesheet
+<html>
+<head>
+<title>Styles</title>
+<style>
+body 
+{
+font-size:30pt; 
+font-family:monotype corsiva;   
+color:green;
+background-color:yellow;
+}			
+
+h1 
+{
+font-size:30pt; 
+text-align:center; 
+color:red;
+}	
+p 
+{
+margin-left:50px; 
+margin-right:50px;
+}
+a:link {color:blue;}
+a:visited {color:red;}
+a:active {color:pink;}
+</style>
+</head>
+<body>
+<h1>Internal Style Example</h1><hr/><br/>
+<p> Cascading Style sheets defined by <a href="sample.html"> Internal  style</a> provides powerful page layout facilities
+</p>
+</body>
+</html>
+
+
+
+👆external 
+
+h1{
+font-size:35pt; 
+font-family:Arial; 
+color:black;}
+body{ 
+font-size:30pt; 
+font-family:monotype corsiva; 
+color:green;
+background-color:yellow;}
+p{
+font-size:30pt; 
+text-align:center; 
+color:red;}		
+big{
+margin-left:50px; 
+margin-right:50px;}	
+small{
+color:blue;}
+
